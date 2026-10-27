@@ -46,4 +46,20 @@ class WizardTest {
 
         assertEquals(70, evilWizard.mana)
     }
+
+    @Test
+    fun train_sufficentManaToTrain_spellPowerIncreasesCorrectly() {
+        evilWizard.mana = 5
+        evilWizard.train()
+        assertEquals(11, evilWizard.spellPower)
+        assertEquals(0, evilWizard.mana)
+    }
+
+    @Test
+    fun train_insufficientManaToTrain_spellPowerDoesNotIncrease() {
+        evilWizard.mana = 4
+        evilWizard.train()
+        assertEquals(10, evilWizard.spellPower)
+        assertEquals(4, evilWizard.mana)
+    }
 }
